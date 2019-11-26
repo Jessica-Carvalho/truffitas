@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar color="#fff295">
+      <ion-buttons>
+        <ion-back-button></ion-back-button>
+        <ion-title>Api</ion-title>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+<ion-content class="ion-text-center">
+  <ion-grid>
+    <ion-row >
+        <ion-col align-self-start> 
+          <img src="../../../../../assets/logo.png" style="width: 130px;">
+        </ion-col>
+        </ion-row>
+  </ion-grid>
+  <ion-card>
+    <form (submit)="buscarPrevisao()">
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="data" name="data" placeholder="buscar...">
+        </ion-input>
+        <ion-icon name="search" (click)="buscarPrevisao()"> </ion-icon>
+      </ion-item>
+    </form>
+  </ion-card>
+    <ion-card *ngIf="resultado">
+      <ion-card-header>
+        <ion-card-title color="white">Resultado para {{ resultado.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-col align-self-start>
+        <img [src]="icone"style="width: 180px; margin: auto; display: block;">
+      </ion-col>
+        {{resultado.main.temp}}
+        <ion-button color="white" href="api/{{ resultado.localidade }}" expand="block">
+          Verificar outra previsão
+        </ion-button>
+      </ion-card-content>
+</ion-card>
+</ion-content>

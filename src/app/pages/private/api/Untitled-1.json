@@ -1,0 +1,41 @@
+{
+    "coord": {
+        "lon": -56,
+        "lat": -28.66
+    },
+    "weather": [
+        {
+            "id": 801,
+            "main": "Clouds",
+            "description": "few clouds",
+            "icon": "02n"
+        }
+    ],
+    "base": "model",
+    "main": {
+        "temp": 300.58,
+        "pressure": 1004,
+        "humidity": 53,
+        "temp_min": 300.58,
+        "temp_max": 300.58,
+        "sea_level": 1004,
+        "grnd_level": 995
+    },
+    "wind": {
+        "speed": 2.97,
+        "deg": 46
+    },
+    "clouds": {
+        "all": 18
+    },
+    "dt": 1574728511,
+    "sys": {
+        "country": "BR",
+        "sunrise": 1574671155,
+        "sunset": 1574720579
+    },
+    "timezone": -10800,
+    "id": 3449340,
+    "name": "São Borja",
+    "cod": 200
+}

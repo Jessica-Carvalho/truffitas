@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="app">
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+      <ion-title>Trufas</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-text-center">
+   <ion-grid>
+  <ion-row >
+      <ion-col align-self-start> 
+        <img src="../../../../../assets/logo.png" style="width: 130px;">
+      </ion-col>
+      </ion-row>
+</ion-grid>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Sabor:</ion-label>
+        <ion-input [(ngModel)]="trufaCorrente.sabor"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Qnt:</ion-label>
+        <ion-input type="numeric" min=0 [(ngModel)]="trufaCorrente.quantidade"></ion-input>
+      </ion-item>
+      <ion-button expand="block" color="app" (click)="gravar()">
+        Salvar
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-item-sliding *ngFor="let item of trufas | async">
+    <ion-item>
+      <ion-avatar>
+        <ion-icon name="image" (click)="tirarFoto(item.uid)"></ion-icon>
+      </ion-avatar>
+      <ion-label>  Sabor:          {{ item.sabor }}  </ion-label>
+      <ion-label> Qnt:          {{ item.quantidade }} </ion-label>
+      <ion-buttons>
+          <ion-grid>
+          <ion-row>
+            <ion-icon name="arrow-dropup" (click)= "aumentarQuantidade(item)"></ion-icon>              
+          </ion-row>
+          <ion-row><ion-icon name="arrow-dropdown" (click)= "diminuirQuantidade(item)"></ion-icon>
+          </ion-row>
+        </ion-grid>
+        </ion-buttons>
+    </ion-item>
+    <ion-item-options>
+      <ion-item-option color="app" (click)="editar(item)">
+        <ion-icon name="create"></ion-icon>
+      </ion-item-option>
+      <ion-item-option color="danger" (click)="apagar(item.uid)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+  <a routerLink="/api">API</a>
+
+</ion-content>
